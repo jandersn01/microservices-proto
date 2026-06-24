@@ -26,7 +26,7 @@ const (
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type PaymentClient interface {
-	Create(ctx context.Context, in *CreatePAymentRequest, opts ...grpc.CallOption) (*CreatePaymentResponse, error)
+	Create(ctx context.Context, in *CreatePaymentRequest, opts ...grpc.CallOption) (*CreatePaymentResponse, error)
 }
 
 type paymentClient struct {
@@ -37,7 +37,7 @@ func NewPaymentClient(cc grpc.ClientConnInterface) PaymentClient {
 	return &paymentClient{cc}
 }
 
-func (c *paymentClient) Create(ctx context.Context, in *CreatePAymentRequest, opts ...grpc.CallOption) (*CreatePaymentResponse, error) {
+func (c *paymentClient) Create(ctx context.Context, in *CreatePaymentRequest, opts ...grpc.CallOption) (*CreatePaymentResponse, error) {
 	out := new(CreatePaymentResponse)
 	err := c.cc.Invoke(ctx, Payment_Create_FullMethodName, in, out, opts...)
 	if err != nil {
@@ -50,7 +50,7 @@ func (c *paymentClient) Create(ctx context.Context, in *CreatePAymentRequest, op
 // All implementations must embed UnimplementedPaymentServer
 // for forward compatibility
 type PaymentServer interface {
-	Create(context.Context, *CreatePAymentRequest) (*CreatePaymentResponse, error)
+	Create(context.Context, *CreatePaymentRequest) (*CreatePaymentResponse, error)
 	mustEmbedUnimplementedPaymentServer()
 }
 
@@ -58,7 +58,7 @@ type PaymentServer interface {
 type UnimplementedPaymentServer struct {
 }
 
-func (UnimplementedPaymentServer) Create(context.Context, *CreatePAymentRequest) (*CreatePaymentResponse, error) {
+func (UnimplementedPaymentServer) Create(context.Context, *CreatePaymentRequest) (*CreatePaymentResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Create not implemented")
 }
 func (UnimplementedPaymentServer) mustEmbedUnimplementedPaymentServer() {}
@@ -75,7 +75,7 @@ func RegisterPaymentServer(s grpc.ServiceRegistrar, srv PaymentServer) {
 }
 
 func _Payment_Create_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CreatePAymentRequest)
+	in := new(CreatePaymentRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -87,7 +87,7 @@ func _Payment_Create_Handler(srv interface{}, ctx context.Context, dec func(inte
 		FullMethod: Payment_Create_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PaymentServer).Create(ctx, req.(*CreatePAymentRequest))
+		return srv.(PaymentServer).Create(ctx, req.(*CreatePaymentRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }

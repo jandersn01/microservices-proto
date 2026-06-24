@@ -2,7 +2,7 @@ syntax = "proto3";
 
 option go_package= "github/jandersn01/microservices-proto/golang/payment";
 
-message CreatePAymentRequest {
+message CreatePaymentRequest {
     int64 user_id = 1;
     int64 order_id = 2;
     float total_price = 3;
@@ -14,5 +14,5 @@ message CreatePaymentResponse {
 }
 
 service Payment {
-    rpc Create(CreatePAymentRequest) returns (CreatePaymentResponse){}
+    rpc Create(CreatePaymentRequest) returns (CreatePaymentResponse){}
 }

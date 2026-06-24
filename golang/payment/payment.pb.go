@@ -21,7 +21,7 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-type CreatePAymentRequest struct {
+type CreatePaymentRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	UserId        int64                  `protobuf:"varint,1,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
 	OrderId       int64                  `protobuf:"varint,2,opt,name=order_id,json=orderId,proto3" json:"order_id,omitempty"`
@@ -30,20 +30,20 @@ type CreatePAymentRequest struct {
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *CreatePAymentRequest) Reset() {
-	*x = CreatePAymentRequest{}
+func (x *CreatePaymentRequest) Reset() {
+	*x = CreatePaymentRequest{}
 	mi := &file_golang_payment_payment_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *CreatePAymentRequest) String() string {
+func (x *CreatePaymentRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*CreatePAymentRequest) ProtoMessage() {}
+func (*CreatePaymentRequest) ProtoMessage() {}
 
-func (x *CreatePAymentRequest) ProtoReflect() protoreflect.Message {
+func (x *CreatePaymentRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_golang_payment_payment_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -55,26 +55,26 @@ func (x *CreatePAymentRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use CreatePAymentRequest.ProtoReflect.Descriptor instead.
-func (*CreatePAymentRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use CreatePaymentRequest.ProtoReflect.Descriptor instead.
+func (*CreatePaymentRequest) Descriptor() ([]byte, []int) {
 	return file_golang_payment_payment_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *CreatePAymentRequest) GetUserId() int64 {
+func (x *CreatePaymentRequest) GetUserId() int64 {
 	if x != nil {
 		return x.UserId
 	}
 	return 0
 }
 
-func (x *CreatePAymentRequest) GetOrderId() int64 {
+func (x *CreatePaymentRequest) GetOrderId() int64 {
 	if x != nil {
 		return x.OrderId
 	}
 	return 0
 }
 
-func (x *CreatePAymentRequest) GetTotalPrice() float32 {
+func (x *CreatePaymentRequest) GetTotalPrice() float32 {
 	if x != nil {
 		return x.TotalPrice
 	}
@@ -164,11 +164,11 @@ func file_golang_payment_payment_proto_rawDescGZIP() []byte {
 
 var file_golang_payment_payment_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_golang_payment_payment_proto_goTypes = []any{
-	(*CreatePAymentRequest)(nil),  // 0: CreatePAymentRequest
+	(*CreatePaymentRequest)(nil),  // 0: CreatePaymentRequest
 	(*CreatePaymentResponse)(nil), // 1: CreatePaymentResponse
 }
 var file_golang_payment_payment_proto_depIdxs = []int32{
-	0, // 0: Payment.Create:input_type -> CreatePAymentRequest
+	0, // 0: Payment.Create:input_type -> CreatePaymentRequest
 	1, // 1: Payment.Create:output_type -> CreatePaymentResponse
 	1, // [1:2] is the sub-list for method output_type
 	0, // [0:1] is the sub-list for method input_type
