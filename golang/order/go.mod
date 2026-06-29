@@ -1,6 +1,6 @@
 module github.com/jandersn01/microservices-proto/golang/order
 
-go 1.26.1
+go 1.24.5
 
 require (
 	google.golang.org/grpc v1.81.1
